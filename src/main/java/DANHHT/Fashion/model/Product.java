@@ -3,6 +3,8 @@ package DANHHT.Fashion.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -29,4 +31,13 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+    @ManyToMany
+    @JoinTable(name = "product_size",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "size_id"))
+    private List<Size> size;
+
 }

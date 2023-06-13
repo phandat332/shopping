@@ -11,15 +11,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Table(name = "category")
-public class Category {
+@Table(name = "Brand")
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
     private List<Product> products;
 
     public long getId() {
@@ -46,7 +46,7 @@ public class Category {
         this.products = products;
     }
 
-    public Category(long id, String name) {
+  public Brand(long id, String name) {
         this.id = id;
         this.name = name;
     }

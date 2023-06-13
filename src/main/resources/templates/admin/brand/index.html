@@ -15,7 +15,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Projects <small>Listing design</small></h3>
+          <h3>Brand</h3>
         </div>
 
         <div class="title_right">
@@ -33,7 +33,7 @@
       <div class="clearfix"></div>
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="x_panel">
             <div class="x_title">
               <h2>Projects</h2>
@@ -54,27 +54,25 @@
             </div>
             <div class="x_content">
 
-              <p>Simple table with project listing with progress and editing options</p>
+              <a type="button" th:href="@{/brand/addbrand}" class="btn btn-round btn-primary">Add Brad</a>
 
               <!-- start project list -->
               <table class="table table-striped projects">
                 <thead>
                 <tr>
-                  <th style="width: 1%">CategoryID</th>
-                  <th style="width: 20%">Category</th>
-                  <th style="width: 20%">function</th>
+                  <th style="width: 10%">id</th>
+                  <th style="width: 30%">Brand</th>
+                  <th style="width: 50%">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
+
+                <tr th:each="brand : ${listbrand}">
+                  <td th:text=${brand.id}></td>
+                  <td th:text=${brand.name}></td>
                   <td>
-                    <a>Pesamakini Backend UI</a>
-                  </td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                    <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                    <a href="@admin" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                    <a th:href="@{/brand/editbrand/{id}(id=${brand.id})}"  class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                    <a th:href="@{/brand/deletebrand/{id}(id=${brand.id})}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                   </td>
                 </tr>
 
